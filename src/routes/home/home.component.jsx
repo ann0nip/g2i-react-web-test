@@ -1,4 +1,4 @@
-import React from 'react';
+import Button, { BUTTON_TYPE_CLASSES } from '../../components/button/button.component';
 import './home.styles.css';
 
 const Home = () => {
@@ -24,9 +24,7 @@ const Home = () => {
           <div className="action_content"></div>
         </div>
         <div className="button_section">
-          <button className="button-53" role="button">
-            BEGIN
-          </button>
+          <Button buttonType={BUTTON_TYPE_CLASSES.beginButton}>BEGIN</Button>
         </div>
       </div>
     </section>
