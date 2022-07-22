@@ -30,20 +30,6 @@
     margin: 1rem
 }
 
-.container_box .card {
-    font-size: 1.5rem;
-    font-weight: 500;
-    flex-grow: 2;
-    background-color: white;
-    border-radius: 1rem;
-    color: #000000;
-    padding: 1rem;
-}
-
-.container_box .card p {
-    text-align: center;
-}
-
 .container_box .button_section {
     flex-grow: 1;
     display: flex;

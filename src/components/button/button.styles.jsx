@@ -12,6 +12,7 @@ export const BaseButton = styled.button`
   justify-content: center;
   line-height: 1.75rem;
   padding: 0.75rem 1.65rem;
+  margin: 0.5rem;
   position: relative;
   text-align: center;
   text-decoration: none #000000 solid;
@@ -53,5 +54,15 @@ export const BaseButton = styled.button`
 
 export const BeginButton = styled(BaseButton)`
   background-color: #ffb100;
+  transform: rotate(-2deg);
+`;
+
+export const TrueButton = styled(BaseButton)`
+  background-color: #88c879;
+  transform: rotate(-2deg);
+`;
+
+export const FalseButton = styled(BaseButton)`
+  background-color: #f05f5f;
   transform: rotate(-2deg);
 `;

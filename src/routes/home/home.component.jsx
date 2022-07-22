@@ -1,5 +1,9 @@
 import Button, { BUTTON_TYPE_CLASSES } from '../../components/button/button.component';
+import Card from '../../components/card/card.component';
 import './home.styles.css';
+
+const primaryText = `You will be presented with 10 True or False questions.`;
+const secondaryText = `Can you score 100%?`;
 
 const Home = () => {
   return (
@@ -12,17 +16,7 @@ const Home = () => {
             <span className=""> Challenge!</span>
           </h1>
         </header>
-        <div className="card">
-          <div className="text_content">
-            <p>
-              You will be presented with 10 True or False questions.
-              <br />
-              <br />
-              Can you score 100%?
-            </p>
-          </div>
-          <div className="action_content"></div>
-        </div>
+        <Card primaryContent={primaryText} secondaryContent={secondaryText} />
         <div className="button_section">
           <Button buttonType={BUTTON_TYPE_CLASSES.beginButton}>BEGIN</Button>
         </div>
