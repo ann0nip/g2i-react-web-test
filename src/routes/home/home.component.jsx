@@ -1,27 +1,28 @@
 import Button, { BUTTON_TYPE_CLASSES } from '../../components/button/button.component';
 import Card from '../../components/card/card.component';
-import './home.styles.css';
+import { ContentWrapper, ContentBox, Header, HeaderTitle, ButtonActions } from './home.styles';
+('./home.styles.jsx');
 
 const primaryText = `You will be presented with 10 True or False questions.`;
 const secondaryText = `Can you score 100%?`;
 
 const Home = () => {
   return (
-    <section className="container">
-      <div className="container_box">
-        <header className="header">
+    <ContentWrapper>
+      <ContentBox>
+        <Header>
           <span>Welcome to the </span>
-          <h1>
-            <span className="">Trivia</span>
-            <span className=""> Challenge!</span>
-          </h1>
-        </header>
+          <HeaderTitle>
+            <span>Trivia</span>
+            <span> Challenge!</span>
+          </HeaderTitle>
+        </Header>
         <Card primaryContent={primaryText} secondaryContent={secondaryText} />
-        <div className="button_section">
+        <ButtonActions>
           <Button buttonType={BUTTON_TYPE_CLASSES.beginButton}>BEGIN</Button>
-        </div>
-      </div>
-    </section>
+        </ButtonActions>
+      </ContentBox>
+    </ContentWrapper>
   );
 };
 
