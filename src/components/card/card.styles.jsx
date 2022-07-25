@@ -15,8 +15,3 @@ export const ContentContainer = styled.div`
 export const ContentText = styled.p`
   text-align: center;
 `;
-
-export const ContentActions = styled.div`
-  margin-top: auto;
-  display: flex;
-`;

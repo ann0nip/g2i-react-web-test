@@ -2,8 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import './App.css';
 import Home from './routes/home/home.component';
-
-const Quiz = () => <h1>Quiz</h1>;
+import Quiz from './routes/quiz/quiz.component';
 const Results = () => <h1>Results</h1>;
 
 const App = () => {

@@ -19,6 +19,7 @@ export const BaseButton = styled.button`
   text-decoration-thickness: auto;
   width: 100%;
   max-width: 460px;
+  max-height: 3rem;
   position: relative;
   cursor: pointer;
   user-select: none;
@@ -58,11 +59,13 @@ export const BeginButton = styled(BaseButton)`
 `;
 
 export const TrueButton = styled(BaseButton)`
+  margin-right: 1rem;
   background-color: #88c879;
-  transform: rotate(-2deg);
+  transform: rotate(0deg);
 `;
 
 export const FalseButton = styled(BaseButton)`
+  margin-left: 1rem;
   background-color: #f05f5f;
-  transform: rotate(-2deg);
+  transform: rotate(0deg);
 `;
