@@ -23,7 +23,6 @@ export const Header = styled.header`
   text-align: center;
   font-size: 2rem;
   font-weight: 500;
-  min-height: 75px;
   margin: 1rem;
 `;
 

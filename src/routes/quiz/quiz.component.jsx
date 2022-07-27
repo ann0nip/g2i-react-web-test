@@ -9,7 +9,7 @@ import { ProgressText, SpinnerContainer } from './quiz.styles';
 
 const Quiz = () => {
   const navigate = useNavigate();
-  const { questions, currentQuestionIndex } = useContext(AppContext);
+  const { questions, currentQuestionIndex, updateQuestions } = useContext(AppContext);
   const [currentQuestion, setCurrentQuestion] = useState(null);
 
   useEffect(() => {
@@ -20,6 +20,17 @@ const Quiz = () => {
     }
   }, [questions]);
 
+  useEffect(() => {
+    if (questions.length > 0 && currentQuestionIndex === questions.length) {
+      navigate('/results');
+    }
+  }, [currentQuestionIndex]);
+
+  const handleResponse = (value) => {
+    let questionsWithAnswer = [...questions];
+    questionsWithAnswer[currentQuestionIndex].user_answer = value;
+    updateQuestions(questionsWithAnswer);
+  };
   return (
     <ContentWrapper>
       {!currentQuestion && (
@@ -33,8 +44,16 @@ const Quiz = () => {
           <Card primaryContent={currentQuestion.question} />
           <ProgressText>{`${currentQuestionIndex + 1} of ${questions.length}`}</ProgressText>
           <ButtonGroup>
-            <Button buttonType={BUTTON_TYPE_CLASSES.trueButton}>True</Button>
-            <Button buttonType={BUTTON_TYPE_CLASSES.falseButton}>False</Button>
+            <Button
+              buttonType={BUTTON_TYPE_CLASSES.trueButton}
+              onClick={() => handleResponse('true')}>
+              True
+            </Button>
+            <Button
+              buttonType={BUTTON_TYPE_CLASSES.falseButton}
+              onClick={() => handleResponse('false')}>
+              False
+            </Button>
           </ButtonGroup>
         </ContentBox>
       )}

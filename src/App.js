@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './routes/home/home.component';
 import Quiz from './routes/quiz/quiz.component';
-const Results = () => <h1>Results</h1>;
+import Results from './routes/results/results.component';
 
 const App = () => {
   return (
