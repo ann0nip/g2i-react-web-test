@@ -1,10 +1,11 @@
-import { ContentContainer, ContentText } from './card.styles';
+import { ContentContainer } from './card.styles';
+import RenderHTML from '../../utils/sanitizeHTML.utils';
 
 const Card = ({ primaryContent = '', secondaryContent = '' }) => {
   return (
     <ContentContainer>
-      <ContentText>{primaryContent}</ContentText>
-      <ContentText>{secondaryContent}</ContentText>
+      <RenderHTML html={primaryContent} />
+      <RenderHTML html={secondaryContent} />
     </ContentContainer>
   );
 };

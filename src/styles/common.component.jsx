@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   height: 100%;
   color: #ffffff;
 `;
@@ -21,7 +22,8 @@ export const ContentBox = styled.div`
 export const Header = styled.header`
   text-align: center;
   font-size: 2rem;
-  flex-grow: 0;
+  font-weight: 500;
+  min-height: 75px;
   margin: 1rem;
 `;
 
@@ -29,5 +31,5 @@ export const ButtonGroup = styled.div`
   flex-grow: 1;
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
 `;

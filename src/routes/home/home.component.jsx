@@ -1,15 +1,21 @@
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button, { BUTTON_TYPE_CLASSES } from '../../components/button/button.component';
 import Card from '../../components/card/card.component';
+import { AppContext } from '../../contexts/app.contex';
 import { Header, ButtonGroup, ContentBox, ContentWrapper } from '../../styles/common.component';
 import { HeaderTitle } from './home.styles';
-('./home.styles.jsx');
 
 const primaryText = `You will be presented with 10 True or False questions.`;
 const secondaryText = `Can you score 100%?`;
 
 const Home = () => {
   const navigate = useNavigate();
+  const { getQuestions } = useContext(AppContext);
+
+  useEffect(() => {
+    getQuestions();
+  }, []);
 
   const handleClick = () => {
     navigate('/quiz');
