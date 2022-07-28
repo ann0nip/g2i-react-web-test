@@ -36,7 +36,9 @@ const Home = () => {
         </Header>
         <Card primaryContent={primaryText} secondaryContent={secondaryText} />
         <ButtonGroup>
-          {isLoading && <ReactLoading type={'bubbles'} color={'#FFF'} height={300} width={150} />}
+          {isLoading && (
+            <ReactLoading type={'bubbles'} color={'#FFF'} height={'5rem'} width={'6rem'} />
+          )}
           {!isLoading && (
             <Button buttonType={BUTTON_TYPE_CLASSES.beginButton} onClick={handleClick}>
               BEGIN

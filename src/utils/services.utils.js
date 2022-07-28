@@ -1,4 +1,4 @@
-const API_URL = 'https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean';
+const API_URL = process.env.REACT_APP_API_URL;
 
 const handleErrors = (response) => {
   throw Error(response.statusText);

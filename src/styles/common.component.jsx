@@ -17,6 +17,7 @@ export const ContentBox = styled.div`
   max-width: 600px;
   align-items: center;
   margin: 0 auto;
+  overflow: auto;
 `;
 
 export const Header = styled.header`
@@ -24,6 +25,7 @@ export const Header = styled.header`
   font-size: 2rem;
   font-weight: 500;
   margin: 1rem;
+  min-height: 6.5rem;
 `;
 
 export const ButtonGroup = styled.div`
@@ -31,4 +33,5 @@ export const ButtonGroup = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 `;

@@ -34,7 +34,7 @@ const Results = () => {
       {questions && (
         <ContentBox>
           <Header>You scored</Header>
-          <ProgressText marginTop="0">{`${score} of ${questions.length}`}</ProgressText>
+          <ProgressText marginTop="-4rem">{`${score} of ${questions.length}`}</ProgressText>
           <div>
             {questions.map((question, key) => {
               return (
