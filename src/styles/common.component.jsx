@@ -30,5 +30,5 @@ export const ButtonGroup = styled.div`
   flex-grow: 1;
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  align-items: center;
 `;

@@ -6,26 +6,17 @@ import { createAction } from '../utils/create-action.utils';
 
 export const AppContext = createContext();
 
-// const gameState = {
-//     isGameLoading: false,
-//     questions: [],
-//     totalScore: 0,
-//     currentQuestionIndex: 0,
-//     currentQuestion: '',
-//     currentCategory: '',
-//     userAnswers: [],
-//     error: null
-//   };
-
 export const APP_ACTION_TYPES = {
   SET_QUESTIONS: 'SET_QUESTIONS',
+  SET_LOADING_STATUS: 'SET_LOADING_STATUS',
   UPDATE_QUESTIONS_W_ANSWERS: 'UPDATE_QUESTIONS_W_ANSWERS',
   RESET: 'RESET'
 };
 
 const INITIAL_STATE = {
   questions: null,
-  currentQuestionIndex: 0
+  currentQuestionIndex: 0,
+  isLoading: true
 };
 
 const AppReducer = (state, action) => {
@@ -36,6 +27,8 @@ const AppReducer = (state, action) => {
       return { ...state, questions: payload };
     case APP_ACTION_TYPES.UPDATE_QUESTIONS_W_ANSWERS:
       return { ...state, questions: payload, currentQuestionIndex: state.currentQuestionIndex + 1 };
+    case APP_ACTION_TYPES.SET_LOADING_STATUS:
+      return { ...state, isLoading: payload };
     case APP_ACTION_TYPES.RESET:
       return { ...INITIAL_STATE };
     default:
@@ -44,21 +37,36 @@ const AppReducer = (state, action) => {
 };
 
 export const AppProvider = ({ children }) => {
-  const [{ questions, currentQuestionIndex }, dispatch] = useReducer(AppReducer, INITIAL_STATE);
+  const [{ questions, currentQuestionIndex, isLoading }, dispatch] = useReducer(
+    AppReducer,
+    INITIAL_STATE
+  );
+
+  const setIsLoading = (value) =>
+    dispatch(createAction(APP_ACTION_TYPES.SET_LOADING_STATUS, value));
 
   const setQuestions = (values) => dispatch(createAction(APP_ACTION_TYPES.SET_QUESTIONS, values));
+
+  const getQuestions = async () => {
+    setIsLoading(true);
+    const { results } = await getQuestionsService();
+    setQuestions(results);
+    setIsLoading(false);
+  };
 
   const updateQuestions = (values) =>
     dispatch(createAction(APP_ACTION_TYPES.UPDATE_QUESTIONS_W_ANSWERS, values));
 
   const resetState = () => dispatch(createAction(APP_ACTION_TYPES.RESET));
 
-  const getQuestions = async () => {
-    resetState();
-    const { results } = await getQuestionsService();
-    setQuestions(results);
+  const value = {
+    questions,
+    getQuestions,
+    currentQuestionIndex,
+    updateQuestions,
+    isLoading,
+    setIsLoading,
+    resetState
   };
-
-  const value = { questions, getQuestions, currentQuestionIndex, updateQuestions };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

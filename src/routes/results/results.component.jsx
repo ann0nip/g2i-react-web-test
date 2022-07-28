@@ -9,7 +9,7 @@ import { ResultIcon, ResultRow } from './results.styles';
 
 const Results = () => {
   const navigate = useNavigate();
-  const { questions } = useContext(AppContext);
+  const { questions, resetState } = useContext(AppContext);
   const [score, setScore] = useState(0);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Results = () => {
   }, [questions]);
 
   const handleClick = () => {
-    navigate('/');
+    resetState();
   };
 
   return (

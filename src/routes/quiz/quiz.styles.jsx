@@ -6,8 +6,3 @@ export const ProgressText = styled.div`
   font-size: 1.2rem;
   font-weight: 500;
 `;
-
-export const SpinnerContainer = styled.div`
-  display: flex;
-  justify-content: center;
-`;
